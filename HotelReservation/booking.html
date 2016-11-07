@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Booking</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link rel="stylesheet" type="text/css" href="validate.css">
+
+	<script  type="text/javascript" src="./js/user/booking.js"></script> <!-- ivan -->
+	<script  type="text/javascript" src="./js/jquery-1.11.3.min.js"></script> <!-- ivan -->
+	<script  type="text/javascript" src="./js/main/validate.js"></script> <!-- ivan -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/lang/en-gb.js"></script>
+<script>
+$(function(){
+      $('#booking-datetimepicker1').datetimepicker({
+       
+      });
+    });  
+    $(function(){
+      $('#booking-datetimepicker2').datetimepicker({
+       
+      });
+    });
+</script>
+</head>
+<body onload=load()>
+
+<div class="container">
+  <div id="index">
+    <div class="row-top">
+    <div class="col-sm-5" ><a href="index.html"><b>Hotel Reservation</b></a></div>
+    <div class="col-sm-7" >
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="myaccount" disabled="true" onclick="location.href='account.html'">My Account</a></button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" id="s_login">Login</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup" id="s_signup">Signup</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signout" id="s_signout" disabled="true" onclick=signout()>Signout</button>
+      </div>
+    </div>
+  </div>  <!--  div row-top-->
+
+  </div>
+
+  
+
+  <div class="booking">
+    <div class="booking-title">
+      <h3 id="subtitle" >Booking</h3>
+    </div>  <!-- div-booking-title  -->
+
+    <div class="booking-left">
+      <form role="form" id = "bookingForm">
+      
+      <div class="form-group">
+            <label for="Name">Hotel Name:</label>
+            <input type="name" class="form-control" id="booking-hname" placeholder="Enter name">
+          </div>
+          
+          <div class="form-group">
+            <label for="Name">Address:</label>
+            <input type="name" class="form-control" id="booking-addr" placeholder="Enter name">
+          </div>
+          
+          <div class="form-group">
+            <label for="Name">Price:</label>
+            <input type="name" class="form-control" id="booking-price" placeholder="Enter name">
+          </div>
+        
+          <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="name" class="form-control" id="booking-name" placeholder="Enter name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="booking-email" placeholder="Enter email">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="phone" class="form-control" id="booking-phone" placeholder="Enter phone">
+          </div>
+
+
+          <div class ="form-group">
+            <div class="row">
+              <div class="col-lg-6">
+              <b>Check in: </b>
+                <div class="form-group">
+                  <div class='input-group date' id='booking-datetimepicker1'>
+                  
+                    <input type='text' id = "checkin" class="form-control" placeholder="Date&Time" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+              <b>Check out:</b>
+                <div class="form-group">
+                  <div class='input-group date' id='booking-datetimepicker2'>
+                    
+                    <input type='text' id="checkout" class="form-control" placeholder="Date&Time" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label for="htn">Requirement:</label>
+            <input type="requirement" class="form-control" id="booking-requirement" placeholder="Enter requirement">
+          </div>
+          
+         
+        </form>
+        <button type="submit" onclick=validateCreateOrderForm() id="booking-submit" class="btn btn-default" style="background-color: #2A2E33; color:white;">Submit</button>
+    </div> <!-- div-booking-left  -->
+
+    <div class="booking-right">
+      <div class="row-top">
+        <div class="col-sm-4" >
+          <a href="http://www.ritzcarlton.com/en/Default.htm">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Ritz-Gray.png">
+          </a>
+        </div>
+        <div class="col-sm-4" >
+          <a href=" http://jw.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/JWMarriott-Gray.png">
+        </div>
+        <div class="col-sm-4" >
+          <a href="http://renaissance-hotels.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Renaissance-Gray.png">
+        </div>
+      </div>  <!--  div row-top-->
+
+      <div class="row-top">
+        <div class="col-sm-4" >
+          <a href="http://www.bulgarihotels.com/en-US/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Bvlgari-Gray.png">
+          </a>
+        </div>
+        <div class="col-sm-4" >
+          <a href=" http://achotels.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/ACHotels-Gray.png">
+        </div>
+        <div class="col-sm-4" >
+          <a href="http://www.editionhotels.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Edition-Gray.png">
+        </div>
+      </div>  <!--  div row-top-->
+
+      <div class="row-top">
+        <div class="col-sm-4" >
+          <a href="http://www.autograph-hotels.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Autograph-Gray.png">
+          </a>
+        </div>
+        <div class="col-sm-4" >
+          <a href=" http://www.marriott.com/marriott-hotels-resorts/travel.mi">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Marriott-Gray.png">
+        </div>
+        <div class="col-sm-4" >
+          <a href="http://www.marriott.com/delta-hotels/travel.mi">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Delta-Gray-2015-03-12.png">
+        </div>
+      </div>  <!--  div row-top-->
+
+      <div class="row-top">
+        <div class="col-sm-4" >
+          <a href="http://www.marriott.com/protea-hotels/travel.mi">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Protea-Gray.png">
+          </a>
+        </div>
+        <div class="col-sm-4" >
+          <a href=" http://www.marriott.com/towneplace-suites/travel.mi">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/TownePlaceSuites-Gray.png">
+        </div>
+        <div class="col-sm-4" >
+          <a href="http://fairfield.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/FairfieldInnSuites-Gray.png">
+        </div>
+      </div>  <!--  div row-top-->
+
+      <div class="row-top">
+        <div class="col-sm-4" >
+          <a href="http://springhillsuites.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/SpringhillSuites-Gray.png">
+          </a>
+        </div>
+        <div class="col-sm-4" >
+          <a href=" http://www.residenceinn.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/ResidenceInn-Gray.png">
+        </div>
+        <div class="col-sm-4" >
+          <a href="http://moxy-hotels.marriott.com/">
+            <img src="http://cache.marriott.com/Images/Brands/NicMarriott/Moxy-Gray.png">
+        </div>
+      </div>  <!--  div row-top-->
+    </div>  <!-- div-booking-right  -->
+
+  </div>  <!--  div-booking-->
+  <div class="bottom">
+    <h6>Copyright © 2015.Company name All rights reserved.</h6>
+  </div>
+</div>  <!--  div-container-->
+</body>
+</html>

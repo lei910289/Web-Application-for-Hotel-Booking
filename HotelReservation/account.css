@@ -1,0 +1,46 @@
+#account-index .row-top{
+	height: 60px;
+}
+#account-index .row-top .col-sm-5{
+	height: 60px;
+	background-color: #2A2E33;
+	color:white;
+}
+#account-index .row-top .col-sm-7{
+	height: 60px;
+	background-color: #2A2E33;
+	color:white;
+	
+
+}
+#account-index .row-top .col-sm-5 b{
+	font-size: 160%;
+	position: absolute;
+	top: 18px;
+}
+
+#account-index .col-sm-7 ul{
+	margin-top: 10px;
+	margin-left: 344px;
+}
+#account-index .col-sm-7 .btn-group{
+	margin-left: 280px;
+}
+.container{
+	padding: 0;
+	background-image: url("http://www.17sucai.com/upload/55/2013-05-19/3529a5834ca49d8fcad8af30b2130618.jpg");
+}
+#account-form{
+	padding-left: 280px;
+	padding-right: 280px;
+
+}
+.tab-content{
+	padding-bottom: 20px;
+}
+#order{
+	padding-top:30px;
+	padding-left: 110px;
+	padding-right: 110px;
+}
+

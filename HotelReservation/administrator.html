@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Administrator</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link rel="stylesheet" type="text/css" href="validate.css">
+<link rel="stylesheet" type="text/css" href="administrator.css">
+
+	<script  type="text/javascript" src="./js/user/account.js"></script> <!-- ivan -->
+  <script  type="text/javascript" src="./js/main/administrator.js"></script> 
+	<script  type="text/javascript" src="./js/jquery-1.11.3.min.js"></script> <!-- ivan -->
+		<script  type="text/javascript" src="./js/main/validate.js"></script> <!-- ivan -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/lang/en-gb.js"></script>
+</head>
+<body onload = validateAdmin()>
+
+<div class="container" id="admin">
+  <div id="index">
+    <div class="row-top">
+      <div class="col-sm-5" >
+        <a href="index.html"><b>Hotel Reservation</b></a>
+      </div>
+      <div class="col-sm-7"  >
+        <ul class="nav nav-pills" id="admin-pro">
+    <li class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
+    <li><a data-toggle="pill" href="#admin-add" onclick=loadstate()>Add</a></li>
+    <li><a data-toggle="pill" href="#admin-edit">Edit</a></li>
+    <li><a data-toggle="pill" href="" onclick=signout()>Signout</a></li>
+  </ul>
+      </div>
+    </div>  <!--  div row-top-->
+  </div>   <!--  div index -->
+
+    <div class="booking-title">
+      <h3 >Administrator</h3>
+    </div>  <!-- div-booking-title  -->
+
+  
+    <div class="tab-content">
+      <div id="admin-edit" class="tab-pane fade">
+        <div id="edit-content">
+          <form role="form">
+              <div class="form-group">
+                <label for="htn">Hotel Name:</label>
+                <input type="htn" class="form-control" id="admin-search-htn" placeholder="Enter hotel name">
+              </div>
+        <div class="form-group">
+                <label for="zip">Zip-code:</label>
+                <input type="zip" class="form-control" id="admin-search-zip" placeholder="Enter Zip-code">
+              </div>
+       </form>
+
+          <div class="btn-group" id="edit-button">
+          <button type="submit" id="admin-search-submit" class="btn btn-default" style="background-color: #2A2E33; color:white;" onclick=search()>Submit</button>
+      </div>
+        </div>
+        <div id="search-hotel">
+          
+        </div><!-- div  search-hotel-->
+      </div>  <!-- div  admin-edit-->
+      <div id="profile" class="tab-pane fade in active">
+        <form role="form" id="account-form" method="post" action="">
+        
+          <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="text" name="name" class="form-control" id="account-name" placeholder="name" > 
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="form-control" id="account-email" placeholder="email">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" class="form-control" id="account-phone" placeholder="phone">
+          </div>
+         
+         <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="password" class="form-control" id="account-pwd" placeholder="********">
+          </div>
+          <button type="submit" id="account-submit" class="btn btn-default" style="background-color: #2A2E33; color:white;" onclick=validateAccountForm()>Save</button>
+          
+         
+        </form>
+      </div>
+      <div id="admin-add" class="tab-pane fade">
+        <div id="add">
+        
+          <form role="form">
+            <div class="form-group">
+            <label for="htn">Hotel Name:</label>
+            <input type="htn" class="form-control" id="admin-htn" placeholder="Enter hotel name">
+          </div>
+
+          <div class="form-group">
+            <label for="state">Select state (select one):</label>
+           <select class="form-control" id="search-state" onblur=loadCity()>
+            </select>
+          </div>
+
+          
+
+          <div class="form-group">
+            <label for="city">City:</label>
+            <select class="form-control" id="search-city">
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">Zip-code:</label>
+            <input type="zip" class="form-control" id="admin-zip" placeholder="Enter Zip-code">
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="addr">Address:</label>
+            <input type="address" class="form-control" id="admin-addr" placeholder="Enter hotel address">
+          </div>
+          
+
+
+          <table id="type" class="table table-hover" >
+    <thead>
+      <tr>
+        <th>Room Type</th>
+        <th>Price</th>
+        <th>Info</th>
+        <th>Room Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <input type="roomty" class="form-control" id="admin-roomtype0" placeholder="Enter root type">
+        </td>
+        <td>
+          <input type="price" class="form-control" id="admin-price0" placeholder="Enter price">
+        </td>
+        <td>
+          <input type="info" class="form-control" id="admin-info0" placeholder="Enter information">
+        </td>
+        <td>
+          <input type="num" class="form-control" id="admin-roonnum0" placeholder="Enter room number">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+          
+         
+        </form>
+
+        <div class="btn-group">
+        <button type="submit" id="admin-addht" class="btn btn-default" style="background-color: #2A2E33; color:white;" onclick=validateAddForm()>Add</button>
+        
+        <button id="addRoomType" onclick=addRoomType() class="btn btn-default" style="padding:0px;"><img src="http://homehelp.accountz.co.uk/desktop/add_icon.gif" style="width:30px; "></button>
+
+     </div>
+        
+
+        
+        </div>
+        
+      </div>
+    </div>  <!--  tab-content -->
+
+
+  <div class="bottom">
+    <h6>Copyright © 2015.Company name All rights reserved.</h6>
+  </div>
+</div>  <!--  div-container-->
+</body>
+</html>

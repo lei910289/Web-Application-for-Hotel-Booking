@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Account</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.1/css/datepicker.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+   <link rel="stylesheet" type="text/css" href="account.css">
+	<link rel="stylesheet" type="text/css" href="validate.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+	
+
+
+	<script  type="text/javascript" src="./js/user/order.js"></script> <!-- ivan -->
+	<script  type="text/javascript" src="./js/user/account.js"></script> <!-- ivan -->
+	<script  type="text/javascript" src="./js/jquery-1.11.3.min.js"></script> <!-- ivan -->
+		<script  type="text/javascript" src="./js/main/validate.js"></script> <!-- ivan -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.0.0/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/lang/en-gb.js"></script>
+</head>
+<body onload = load()>
+
+<div class="container" id="account">
+  <div id="account-index">
+    <div class="row-top">
+      <div class="col-sm-5" >
+        <a href="index.html"><b>Hotel Reservation</b></a>
+      </div>
+      <div class="col-sm-7"  >
+        <ul class="nav nav-pills" id="acc-pro">
+    <li class="active"><a data-toggle="pill" href="#profile">Profile</a></li>
+    <li><a data-toggle="pill" href="#order" onclick=orders()>Order</a></li>
+     <li><a data-toggle="pill" href="" onclick=signout()>Signout</a></li>
+ </ul>
+      </div>
+    </div>  <!--  div row-top-->
+  </div>   <!--  div index -->
+
+    <div class="booking-title">
+      <h3 >My Accounts</h3>
+    </div>  <!-- div-booking-title  -->
+
+  
+    <div class="tab-content">
+      <div id="profile" class="tab-pane fade in active">
+        <form role="form" id="account-form" method="post" action="">
+        
+          <div class="form-group">
+            <label for="Name">Name:</label>
+            <input type="text" name="name" class="form-control" id="account-name" placeholder="name" > 
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="form-control" id="account-email" placeholder="email">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" class="form-control" id="account-phone" placeholder="phone">
+          </div>
+         
+         <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" name="password" class="form-control" id="account-pwd" placeholder="********">
+          </div>
+          <button type="submit" id="account-submit" class="btn btn-default" style="background-color: #2A2E33; color:white;" onclick=validateAccountForm()>Save</button>
+          
+         
+        </form>
+      </div>
+      <div id="order" class="tab-pane fade">
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                 <th>Hotel Name</th>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Operation</th>
+            </tr>
+        </thead>
+       
+        <tbody>
+           
+            
+        </tbody>
+    </table>
+        
+      </div>
+ 
+    </div>  <!--  tab-content -->
+
+
+  <div class="bottom">
+    <h6>Copyright © 2015.Company name All rights reserved.</h6>
+  </div>
+</div>  <!--  div-container-->
+</body>
+</html>
